@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: shinobi-war-fairy-main
-          image: registry.digitalocean.com/sw-fairy-k8s/sw-fairy-k8s-main:init1
+          image: registry.digitalocean.com/sw-fairy-k8s/sw-fairy-k8s-main:init2
           ports:
             - containerPort: 80
               name: http

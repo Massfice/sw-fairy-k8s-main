@@ -13,10 +13,10 @@ jobs:
       - setup_remote_docker
       - checkout
       - kubernetes/install-kubectl
-      - run: docker build . --tag sw-fairy-k8s-main:init1
+      - run: docker build . --tag sw-fairy-k8s-main:init2
       - run: docker login -u $sw_fairy_api_token -p $sw_fairy_api_token registry.digitalocean.com
-      - run: docker tag sw-fairy-k8s-main:init1 registry.digitalocean.com/sw-fairy-k8s/sw-fairy-k8s-main:init1
-      - run: docker push registry.digitalocean.com/sw-fairy-k8s/sw-fairy-k8s-main:init1
+      - run: docker tag sw-fairy-k8s-main:init2 registry.digitalocean.com/sw-fairy-k8s/sw-fairy-k8s-main:init2
+      - run: docker push registry.digitalocean.com/sw-fairy-k8s/sw-fairy-k8s-main:init2
       - run: kubectl --kubeconfig=/dev/null --server=https://9766b21f-9055-436e-a20a-8018422119a5.k8s.ondigitalocean.com --insecure-skip-tls-verify --token=$sw_fairy_k8s_token apply -f ./k8s/
 
 workflows:
