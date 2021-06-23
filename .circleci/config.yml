@@ -2,11 +2,13 @@ version: 2.1
 
 orbs:
   kubernetes: circleci/kubernetes@0.12.0
+  docker: circleci/docker@1.6.0
 
 jobs:
   deploy:
     docker:
       - image: circleci/node:7.10
+    executor: docker/docker
     steps:
       - checkout
       - kubernetes/install-kubectl
