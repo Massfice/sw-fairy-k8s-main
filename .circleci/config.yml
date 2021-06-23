@@ -10,7 +10,9 @@ jobs:
       - image: circleci/node:7.10
     executor: docker/docker
     steps:
+      - setup_remote_docker
       - checkout
+      - docker/check
       - kubernetes/install-kubectl
       - run: docker build . --tag sw-fairy-k8s-main:init0
       - run: docker login -u $sw_fairy_api_token -p $sw_fairy_api_token
