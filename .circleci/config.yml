@@ -10,13 +10,18 @@ jobs:
     steps:
       - checkout
       - kubernetes/install-kubectl
-      - run: kubectl --version
+      - run: docker build . --tag sw-fairy-k8s-main:init0
+      - run: docker login -u $sw_fairy_api_token -p $sw_fairy_api_token
+      - run: docker tag sw-fairy-k8s-main:init0 registry.digitalocean.com/sw-fairy-k8s/sw-fairy-k8s-main:init0
+      - run: docker push registry.digitalocean.com/sw-fairy-k8s/sw-fairy-k8s-main:init0
 
 workflows:
   version: 2
   deploy:
     jobs:
-      - deploy
+      - deploy:
+          context:
+            - Shinobi War Fairy
       # - deploy:
       #     filters:
       #       branches:
