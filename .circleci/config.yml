@@ -14,7 +14,7 @@ jobs:
       - checkout
       - kubernetes/install-kubectl
       - run: docker build . --tag sw-fairy-k8s-main:init0
-      - run: docker login -u $sw_fairy_api_token -p $sw_fairy_api_token
+      - run: docker login -u $sw_fairy_api_token -p $sw_fairy_api_token registry.digitalocean.com
       - run: docker tag sw-fairy-k8s-main:init0 registry.digitalocean.com/sw-fairy-k8s/sw-fairy-k8s-main:init0
       - run: docker push registry.digitalocean.com/sw-fairy-k8s/sw-fairy-k8s-main:init0
 
