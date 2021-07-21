@@ -18,7 +18,7 @@ module.exports = {
         ],
     },
     devServer: {
-        contentBase: path.join(__dirname, 'build'),
+        contentBase: path.join(__dirname, 'dist'),
         historyApiFallback: true,
         host: '0.0.0.0',
         compress: true,
@@ -30,11 +30,11 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         publicPath: '/',
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'index.html'),
+            template: path.join(__dirname, 'src', 'index.html'),
         }),
     ],
 };
