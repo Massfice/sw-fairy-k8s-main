@@ -4,8 +4,9 @@
     "description": "Main microservice for Shinobi War Fairy project",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "lint": "eslint src/**/*.ts",
+        "start": "webpack-dev-server --mode development",
+        "build": "webpack --mode production",
+        "lint": "eslint src/**/*.ts src/**/*.tsx",
         "husky:init": "husky install && husky add .husky/pre-commit 'npm run lint'"
     },
     "repository": {
