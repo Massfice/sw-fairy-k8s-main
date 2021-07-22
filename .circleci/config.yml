@@ -23,7 +23,7 @@ workflows:
             - deploy:
                   context:
                       - Shinobi War Fairy
-                  # filters:
-                  #     branches:
-                  #         only:
-                  #             - main
+                  filters:
+                      branches:
+                          only:
+                              - main

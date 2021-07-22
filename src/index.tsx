@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactDom from 'react-dom';
+import SampleComponent from './components/SampleComponent';
 
 const App = (): JSX.Element => {
     const [test, setTest] = useState(false);
@@ -12,6 +13,7 @@ const App = (): JSX.Element => {
         <div>
             {test && <div>My awsome App!</div>}
             <button onClick={click}>Button</button>
+            <SampleComponent />
         </div>
     );
 };
