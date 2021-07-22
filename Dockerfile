@@ -1,3 +1,9 @@
-FROM nginx:latest
+FROM node:latest
 
-COPY ./index.html /usr/share/nginx/html/index.html
+WORKDIR /app
+COPY  . .
+
+RUN npm install
+RUN npm run build
+
+CMD [ "npm", "run", "server:start" ]
