@@ -7,6 +7,7 @@
         "start": "webpack serve --config webpack.config.js --progress --mode development",
         "build": "webpack --mode production",
         "lint": "eslint src/**/*.ts*",
+        "server:start": "node ./src/server.js",
         "husky:init": "husky install && husky add .husky/pre-commit 'npm run lint'"
     },
     "repository": {
@@ -48,6 +49,7 @@
     "dependencies": {
         "@types/react": "^17.0.14",
         "@types/react-dom": "^17.0.9",
+        "express": "^4.17.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "typescript": "^4.3.5"
