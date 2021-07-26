@@ -3,7 +3,7 @@ import React from 'react';
 //@ts-ignore
 import CounterAppOne from 'app1/CounterAppOne';
 
-const App = () => (
+const App = (): JSX.Element => (
     <div style={{ margin: '20px' }}>
         <React.Suspense fallback='Loading header...'>
             <div
