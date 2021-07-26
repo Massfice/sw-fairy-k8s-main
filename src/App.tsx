@@ -1,4 +1,5 @@
 import React from 'react';
+/* eslint @typescript-eslint/ban-ts-comment: "off" */
 //@ts-ignore
 import CounterAppOne from 'app1/CounterAppOne';
 
