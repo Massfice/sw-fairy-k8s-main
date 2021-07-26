@@ -9,6 +9,9 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         port: 3000,
+        proxy: {
+            '/v1.0/invoke': 'http://localhost:3500',
+        },
     },
     output: {
         publicPath: 'http://localhost:3000/',
