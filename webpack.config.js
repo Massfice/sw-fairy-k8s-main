@@ -4,10 +4,13 @@ const path = require('path');
 const deps = require('./package.json').dependencies;
 
 module.exports = {
-    entry: './src/index.ts',
+    entry: [
+        'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
+        './src/index.ts', // Your appʼs entry point
+    ],
     mode: 'development',
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname, 'src'),
         port: 3000,
         proxy: {
             '/v1.0/invoke': 'http://localhost:3500',
