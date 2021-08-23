@@ -7,14 +7,14 @@ orbs:
 jobs:
     deploy:
         docker:
-            - image: circleci/node:latest
+            - image: circleci/node:7.10
         executor: docker/docker
         steps:
             - setup_remote_docker
             - checkout
             - kubernetes/install-kubectl
             - run: sudo npm i gulp-cli -g
-            - run: npm i @massfice/sw-fairy-common-deploy-scripts typescript ts-node --save --production=false
+            - run: npm i @massfice/sw-fairy-common-deploy-scripts typescript --save --production=false
             - run: gulp deploy --commit $CIRCLE_SHA1 --dtoken $DOCKER_TOKEN --ktoken $KUBE_TOKEN
 workflows:
     version: 2
