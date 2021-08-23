@@ -7,7 +7,7 @@ orbs:
 jobs:
     deploy:
         docker:
-            - image: circleci/node:9.11
+            - image: circleci/node:latest
         executor: docker/docker
         steps:
             - setup_remote_docker
