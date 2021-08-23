@@ -6,7 +6,7 @@ const deps = require('./package.json').dependencies;
 module.exports = (env, { mode }) => {
     const config = {
         entry: ['./src/index.ts'],
-        mode: mode,
+        mode: mode || 'development',
         devServer: {
             contentBase: path.join(__dirname, 'dist'),
             port: 3000,

@@ -1,43 +1,23 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-// @ts-ignore
-import CallbackPage from 'authui/CallbackPage';
-
-// @ts-ignore
-import useAuth from 'authui/useAuth';
+import LoginPage from './pages/LoginPage';
+import CallbackPage from './pages/CallbackPage';
 
 const App = (): JSX.Element => {
-    console.log(CallbackPage);
-    console.log(useAuth);
     return (
         <div style={{ margin: '20px' }}>
-            <React.Suspense fallback='Loading header...'>
-                <div
-                    style={{
-                        border: '1px dashed black',
-                        height: '50vh',
-                        display: 'flex',
-                        justifyContent: 'space-around',
-                        alignItems: 'center',
-                        flexDirection: 'column',
-                    }}>
-                    <h1>CONTAINER</h1>
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            justifyContent: 'space-around',
-                        }}>
-                        <div
-                            style={{
-                                marginRight: '2rem',
-                                padding: '2rem',
-                                border: '1px dashed black',
-                            }}>
-                            <h2>APP-1</h2>
-                        </div>
-                    </div>
-                </div>
+            <React.Suspense fallback='Loading...'>
+                <BrowserRouter>
+                    <Switch>
+                        <Route path='/' exact>
+                            <LoginPage />
+                        </Route>
+                        <Route path='/callback'>
+                            <CallbackPage />
+                        </Route>
+                    </Switch>
+                </BrowserRouter>
             </React.Suspense>
         </div>
     );
