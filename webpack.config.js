@@ -4,20 +4,18 @@ const path = require('path');
 const deps = require('./package.json').dependencies;
 
 module.exports = {
-    entry: [
-        'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
-        './src/index.ts', // Your appʼs entry point
-    ],
+    entry: ['webpack-dev-server/client?http://0.0.0.0:3000', './src/index.ts'],
     mode: 'development',
     devServer: {
-        contentBase: path.join(__dirname, 'src'),
+        contentBase: path.join(__dirname, 'dist'),
         port: 3000,
+        historyApiFallback: true,
         proxy: {
             '/v1.0/invoke': 'http://localhost:3500',
         },
     },
     output: {
-        publicPath: 'http://localhost:3000/',
+        publicPath: '/',
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js'],
@@ -33,10 +31,10 @@ module.exports = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'container',
-            library: { type: 'var', name: 'container' },
+            name: 'main',
+            library: { type: 'var', name: 'main' },
             remotes: {
-                app1: 'app1',
+                authui: 'authui',
             },
             shared: {
                 ...deps,
