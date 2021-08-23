@@ -3,11 +3,6 @@ kind: Deployment
 metadata:
     name: shinobi-war-fairy-main
     namespace: default
-    annotations:
-        dapr.io/enabled: 'true'
-        dapr.io/app-id: 'main'
-        dapr.io/app-port: '3000'
-        dapr.io/config: 'tracing'
     labels:
         app: shinobi-war-fairy-main
 spec:
@@ -19,6 +14,10 @@ spec:
         metadata:
             labels:
                 app: shinobi-war-fairy-main
+            annotations:
+                dapr.io/enabled: 'true'
+                dapr.io/app-id: 'main'
+                dapr.io/app-port: '3000'
         spec:
             containers:
                 - name: shinobi-war-fairy-main
