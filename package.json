@@ -1,6 +1,8 @@
 {
-    "name": "main",
-    "version": "0.1.0",
+    "name": "sw-fairy-k8s-main",
+    "version": "1.0.0",
+    "description": "Main microservice for Shinobi War Fairy project",
+    "main": "./src/server.js",
     "private": true,
     "dependencies": {
         "@types/node": "^12.0.0",
@@ -27,6 +29,22 @@
         "lint": "eslint src/**/*.ts*",
         "husky:init": "husky install && husky add .husky/pre-commit 'npm run lint'"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Massfice/sw-fairy-k8s-main.git"
+    },
+    "keywords": [
+        "shinobi",
+        "war",
+        "fairy",
+        "main"
+    ],
+    "author": "Massfice",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Massfice/sw-fairy-k8s-main/issues"
+    },
+    "homepage": "https://github.com/Massfice/sw-fairy-k8s-main#readme",
     "browserslist": {
         "production": [
             ">0.2%",
